@@ -1,8 +1,4 @@
-wordpress/wp-content/*
-!wordpress/wp-content/plugins/
-wordpress/wp-content/plugins/*
-!wordpress/wp-content/plugins/exhibition-manager/
-!wordpress/wp-content/plugins/exhibition-manager/**
+wordpress/*
 
 
 # Angular specific
