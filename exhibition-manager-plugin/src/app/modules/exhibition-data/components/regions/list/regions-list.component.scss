@@ -1,0 +1,23 @@
+.full-width-table {
+    width: 100%;
+    border: solid 1px #000000
+}
+
+.table-header {
+    background-color: #1976d2;
+    color: white;              
+    font-weight: bold;          
+
+    th {
+        border-bottom: 2px solid #0d47a1;
+    }
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border: 1px solid #000;
+  vertical-align: middle;
+}

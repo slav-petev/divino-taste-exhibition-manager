@@ -1,0 +1,1 @@
+export { WineRegion } from './models/wine-region';

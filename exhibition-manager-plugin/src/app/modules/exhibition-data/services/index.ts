@@ -1,0 +1,1 @@
+export { ExhibitionDataService } from './exhibition-data.service';
