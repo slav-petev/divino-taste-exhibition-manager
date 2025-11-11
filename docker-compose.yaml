@@ -11,7 +11,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
-  wordpress:
+  plugin-host:
     image: wordpress:6.8.3-php8.4-apache
     container_name: exhibition-manager-host
     restart: always
@@ -24,9 +24,21 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+      ANGULAR_DEV: true
     volumes:
       - ./wordpress/wp-content:/var/www/html/wp-content
       - ./exhibition-manager-menu-registration:/var/www/html/wp-content/plugins/exhibition-manager
+    
+  plugin-logic:
+    image: node:20
+    container_name: exhibition-manager-plugin-logic
+    working_dir: /app
+    volumes:
+      - ./exhibition-manager-plugin:/app
+    ports:
+      - "4200:4200"
+    command: >
+      sh -c "npm install && npm run start -- --host=0.0.0.0 --disable-host-check"
 
 volumes:
   db_data:

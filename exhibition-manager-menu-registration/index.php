@@ -6,8 +6,17 @@
  */
 
 function exhibition_manaher_admin_page() {
+    $is_dev = getenv('ANGULAR_DEV') ?: false;
+    $serve_base_url = 'http://localhost:4200';
+
+    $angular_url = $is_dev ? "$serve_base_url/main.js" : plugin_dir_url( __FILE__ ) . 'dist/main.js';
+    
     ?>
-    <p>Plugin Works</p>
+    <app-root></app-root>
+    <?php if ($is_dev): ?>
+        <script src="<?php echo $serve_base_url; ?>/polyfills.js"></script>
+    <?php endif; ?>
+    <script type="module" src="<?php echo $angular_url; ?>"></script>
     <?php
 }
 
