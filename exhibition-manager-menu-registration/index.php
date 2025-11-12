@@ -5,6 +5,22 @@
  * Version: 1.0.0
  */
 
+function exhibition_manager_enqueue_material_icons($hook) {
+    // Only enqueue on your plugin page
+    if ($hook !== 'toplevel_page_exhibition-manager') {
+        return;
+    }
+
+    wp_enqueue_style(
+        'material-icons',
+        'https://fonts.googleapis.com/icon?family=Material+Icons',
+        array(),
+        null
+    );
+}
+
+add_action('admin_enqueue_scripts', 'exhibition_manager_enqueue_material_icons');
+
 function exhibition_manaher_admin_page() {
     $is_dev = getenv('ANGULAR_DEV') ?: false;
     $serve_base_url = 'http://localhost:4200';
